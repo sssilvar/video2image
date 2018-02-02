@@ -3,7 +3,7 @@ import cv2
 import os
 import shutil
 
-video_file = 'test.mp4'
+video_file = 'test_short.mp4'
 folder_output = os.path.join(os.getcwd(), 'frames')
 
 cap = cv2.VideoCapture(video_file)
