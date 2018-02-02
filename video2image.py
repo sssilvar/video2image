@@ -19,13 +19,16 @@ i = 0
 while cap.isOpened():
     ret, frame = cap.read()
 
-    # Save frames
-    frame_filename = os.path.join(folder_output, '%d.jpg' % i)
-    print('Saving: ' + frame_filename)
-    cv2.imwrite(frame_filename, frame)
-    i += 1
+    if ret:
+        # Save frames
+        frame_filename = os.path.join(folder_output, '%d.jpg' % i)
+        print('Saving: ' + frame_filename)
+        cv2.imwrite(frame_filename, frame)
+        i += 1
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    else:
         break
 
 cap.release()
